@@ -1,0 +1,49 @@
+MEMORIA TÉCNICA – PROGRAMA cliente.py CON CHATGPT Y ANÁLISIS CON MULTIMETRIC
+
+Objetivo del Programa
+---------------------
+El programa tiene como objetivo implementar una interfaz de línea de comandos que permita al usuario interactuar con el modelo de lenguaje ChatGPT de OpenAI, enviando consultas y obteniendo respuestas dinámicas.
+
+Implementaciones Realizadas
+---------------------------
+1. Cliente de OpenAI inicializado correctamente utilizando la clave API desde una variable de entorno o directamente en el código.
+2. Se definieron mensajes de sistema y tarea que contextualizan la interacción con el modelo.
+3. El programa captura entrada del usuario, la valida y envía la consulta al modelo `gpt-4o-mini-2024-07-18`, mostrando la respuesta en consola.
+4. Se añadieron comentarios explicativos detallados para mejorar la legibilidad y comprensión del código.
+5. Se aplicó control de errores para evitar interrupciones inesperadas en caso de problemas con la API.
+
+Resultados del Análisis Estático con MultiMetric
+-------------------------------------------------
+Se utilizó la herramienta MultiMetric para evaluar objetivamente la calidad del código, con los siguientes resultados:
+
+Métricas Principales:
+- comment_ratio: 92.83 % (Excelente documentación)
+- cyclomatic_complexity: 3 (Baja complejidad condicional)
+- fanout_external: 2 (Bajas dependencias externas)
+- halstead_effort: 17,154 (Esfuerzo moderado)
+- halstead_bugprop: 0.357 (Bajo riesgo de errores)
+- maintainability_index: 70.99 (Alta mantenibilidad)
+- pylint: 100.0 (Cumplimiento total con PEP8)
+- tiobe: 97.0 (Excelente calidad general)
+
+Aspectos Positivos del Código
+-----------------------------
+- Muy bien comentado: el ratio de comentarios del 92.8% indica una documentación ejemplar.
+- Baja complejidad ciclomática: código fácil de seguir y mantener.
+- Sin duplicación de código ni funciones innecesarias.
+- Alto cumplimiento de estándares de código limpio y seguro.
+
+Mejoras Realizadas al Código
+----------------------------
+1. Corrección en el uso de os.getenv().
+2. Manejo de errores mejorado con try-except.
+3. Documentación agregada con docstrings y comentarios explicativos.
+4. Separación de lógica en funciones para mejor mantenibilidad.
+
+Conclusión
+----------
+El programa presenta un diseño limpio, modular y fácil de mantener. Las métricas de calidad reflejan 
+un desarrollo cuidadoso, con un excelente balance entre simplicidad, funcionalidad y documentación. 
+Es un buen ejemplo de cómo una herramienta como MultiMetric puede respaldar con datos objetivos la calidad
+del software escrito.
+
