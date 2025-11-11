@@ -1,0 +1,18 @@
+{
+    "ID": "UADER-TEST-01", 
+    "ACTION": "set",
+    "address": "25 de Mayo 385",
+    "cuit": "30-12345678-9",
+    "phone": "03442 42-0000",
+    "sequence_id": "1001",
+    "cp": "3260", 
+    "localidad": "Concepción del Uruguay",
+    "provincia": "Entre Rios",
+    "Email":"fernandorojas201482@gmail.com",
+    "Deporte":"aguante river",
+    "Comida": "PAPA",
+    "Auto": "rojo",
+    "avion":"derecha",
+    "ruta":"arriba"
+}
+

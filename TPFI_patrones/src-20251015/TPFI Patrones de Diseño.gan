@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="Tiempo - TPFI Patrones de Diseño     dateFormat  2025-09-05" company="" webLink="http://" view-date="2025-10-02" view-index="0" gantt-divider-location="340" resource-divider-location="300" version="3.3.3316" locale="es_ES">
+    <description/>
+    <view zooming-state="default:2" id="gantt-chart">
+        <field id="tpd3" name="Nombre" width="193" order="0"/>
+        <field id="tpd4" name="Fecha de inicio" width="71" order="1"/>
+        <field id="tpd5" name="Fecha de fin" width="75" order="2"/>
+        <field id="tpd15" name="Notas" width="20" order="3"/>
+        <option id="filter.completedTasks" value="false"/>
+        <option id="filter.dueTodayTasks" value="false"/>
+        <option id="filter.overdueTasks" value="false"/>
+        <option id="filter.inProgressTodayTasks" value="false"/>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Nombre" width="210" order="0"/>
+        <field id="1" name="Función" width="86" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+            <only-show-weekends value="false"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="0" uid="6f1e8cd6b9624563b9c6782c85f45e91" name="section Fase 1: Configuración y Estructura" meeting="false" start="2025-10-02" duration="2" complete="0" expand="true">
+            <notes><![CDATA[Configuracion AWS y Entorno
+Diseño Base de Datos (DynamoDB)]]></notes>
+        </task>
+        <task id="4" uid="15efa24fd96a4a32853b0a7a5bec1b31" name="section Fase 2: Implementación de Patrones Estructurales" meeting="false" start="2025-10-02" duration="3" complete="0" expand="true">
+            <notes><![CDATA[Singleton (db_access.py, tcp.py)  
+Proxy (handle_client y GET/SET)   ]]></notes>
+        </task>
+        <task id="5" uid="bf7fedfb7a5547d58b83f59a3fa0e5fc" name="section Fase 3: Funcionalidad Crítica (Auditoría)" meeting="false" start="2025-10-02" duration="7" complete="0" expand="true">
+            <notes><![CDATA[Diseño e Implementación Auditoría
+Tests Unitarios/Integración Logueo]]></notes>
+        </task>
+        <task id="6" uid="23c356b52dfb48cd93d547ff9b3fee26" name="section Fase 4: Implementación de Patrón de Comportamiento" meeting="false" start="2025-10-02" duration="12" complete="0" expand="true">
+            <notes><![CDATA[Observer (Suscripción/Notificación)
+Test de Flujo Observer         ]]></notes>
+        </task>
+        <task id="7" uid="d52109c1a1144d61b97995503d3b0202" name="section Fase 5: Verificación Final y Documentación" shape="1,0,1,0,0,1,0,1,1,0,1,0,0,1,0,1" meeting="false" start="2025-10-02" duration="22" complete="0" expand="true">
+            <notes><![CDATA[Verificación Funcional Completa     
+Elaboración Diagramas UML           
+Preparación Presentación Final      ]]></notes>
+        </task>
+    </tasks>
+    <resources/>
+    <allocations/>
+    <vacations/>
+    <previous/>
+    <roles roleset-name="Default"/>
+</project>
