@@ -1,0 +1,123 @@
+import json
+import sys
+import os
+from abc import ABC, abstractmethod
+
+# 1 Interfaz común
+class JsonInspectorBase(ABC):
+    @abstractmethod
+    def load(self):
+        pass
+
+    @abstractmethod
+    def inspect_keys(self, keys):
+        pass
+
+# 2a) Implementación funcional
+class FunctionalInspector(JsonInspectorBase):
+    def __init__(self, filepath):
+        self.filepath = filepath
+        self.obj = None
+
+    def load(self):
+        if not os.path.exists(self.filepath):
+            print(f"[ERROR] El archivo '{self.filepath}' no existe.")
+            return False
+        try:
+            with open(self.filepath, 'r') as f:
+                data = f.read()
+            self.obj = json.loads(data)
+            return True
+        except json.JSONDecodeError:
+            print("[ERROR] JSON inválido en el archivo.")
+            return False
+        except Exception as e:
+            print(f"[ERROR] Falló al leer el archivo: {e}")
+            return False
+
+    def inspect_keys(self, keys):
+        for key in keys:
+            if key in self.obj:
+                print(f"{key}: {self.obj[key]}")
+            else:
+                print(f"{key} no encontrado en el archivo JSON")
+
+# 2b) Implementación orientada a objetos
+class OOInspector(JsonInspectorBase):
+    def __init__(self, filepath):
+        self.filepath = filepath
+        self.data = None
+
+    def load(self):
+        if not os.path.exists(self.filepath):
+            print(f"[ERROR] El archivo '{self.filepath}' no existe.")
+            return False
+        try:
+            with open(self.filepath, 'r') as f:
+                self.data = json.load(f)
+            return True
+        except json.JSONDecodeError:
+            print("[ERROR] JSON inválido en el archivo.")
+            return False
+        except Exception as e:
+            print(f"[ERROR] Falló al leer el archivo: {e}")
+            return False
+
+    def inspect_keys(self, keys):
+        if self.data is None:
+            print("[ERROR] Datos no cargados.")
+            return
+        for key in keys:
+            value = self.data.get(key)
+            if value is not None:
+                print(f"{key}: {value}")
+            else:
+                print(f"{key} no encontrado en el archivo JSON")
+
+# 3) Fábrica
+def get_inspector(filepath, mode="auto"):
+    if mode == "functional":
+        return FunctionalInspector(filepath)
+    if mode == "oo":
+        return OOInspector(filepath)
+    return OOInspector(filepath)
+
+# 4) Ayuda
+def mostrar_ayuda():
+    print("Uso:")
+    print("  python c_getJason.py <archivo.json> [clave1 clave2 ...] [--mode=oo|functional|auto]")
+    print("  python c_getJason.py -v")
+    print("Ejemplo:")
+    print("  python c_getJason.py datos.json token1 token2 --mode=functional")
+
+# 5) Main
+if __name__ == "__main__":
+    args = sys.argv[1:]
+
+    # Mostrar versión si se pasa -v o --version
+    if "-v" in args or "--version" in args:
+        print("versión 1.1")
+        sys.exit(0)
+
+    if not args or args[0].startswith("-"):
+        print("[ERROR] Parámetros insuficientes o mal formateados.")
+        mostrar_ayuda()
+        sys.exit(1)
+
+    # Extraer flags
+    mode = "auto"
+    filtered = []
+    for a in args:
+        if a.startswith("--mode="):
+            mode = a.split("=", 1)[1]
+        else:
+            filtered.append(a)
+
+    archivo_json = filtered[0]
+    claves = filtered[1:] if len(filtered) > 1 else ['token1', 'token2']
+
+    inspector = get_inspector(archivo_json, mode=mode)
+    if inspector.load():
+        inspector.inspect_keys(claves)
+    else:
+        print("[INFO] Terminando ejecución: hubo un error al cargar el JSON.")
